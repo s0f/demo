@@ -1,0 +1,52 @@
+.user-link {
+    color: deepskyblue;
+}
+.tip-default {
+    color: #666;
+}
+.tip-active {
+    color: #09BB07;
+}
+
+.tip-lightblue {
+    color: cornflowerblue;
+}
+.tip-crimson{
+    color: crimson;
+}
+.tip-lightgreen{
+    color: lightgreen;
+}
+.tip-darkgreen{
+    color: #09BB07;
+}
+.tip-firebrick{
+    color: firebrick;
+}
+.tip-warning {
+    text-decoration: underline;
+    color: red;
+}
+
+.tip-orange {
+    color: orange;
+}
+.tip-openCamera{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.4;
+    font-size: .4rem;
+}
+.loading-tip {
+    display: none;
+    text-align: center;
+    font-size: .4rem;
+    line-height: 1rem;
+    color: #666;
+}
+.weui-tabbar {
+    position: fixed;
+    bottom: 0;
+    z-index: 888;
+}
