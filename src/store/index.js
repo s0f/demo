@@ -6,11 +6,15 @@ import Vuex from 'vuex';
 import actions from './actions';
 import mutations from './mutations';
 import getters from './getters';
+import groupIndex from './modules/groupIndex';
+
 Vue.use(Vuex);
 
 const state = {
     token: '',
-    group: null
+    group: null,
+    user: null,
+    config: null
 };
 
 export default new Vuex.Store({
@@ -19,5 +23,6 @@ export default new Vuex.Store({
     mutations,
     getters,
     modules: {
+        groupIndex
     }
 });

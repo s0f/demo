@@ -19,7 +19,8 @@ const router = [
                 path: '',
                 name: 'group',
                 meta: {
-                    requireAuth: true
+                    requireAuth: true,
+                    pageType: 1
                 },
                 component: resolve => {
                     require.ensure([], () => {
@@ -30,6 +31,10 @@ const router = [
             {
                 path: 'match',
                 name: 'match',
+                meta: {
+                    requireAuth: true,
+                    pageType: 2
+                },
                 component: resolve => {
                     require.ensure([], () => {
                         resolve(require('components/group/match/match'));
@@ -39,6 +44,9 @@ const router = [
             {
                 path: 'leaguer',
                 name: 'leaguer',
+                meta: {
+                    requireAuth: true
+                },
                 component: resolve => {
                     require.ensure([], () => {
                         resolve(require('components/group/leaguer/leaguer'));
@@ -48,6 +56,9 @@ const router = [
             {
                 path: 'ranking',
                 name: 'ranking',
+                meta: {
+                    requireAuth: true
+                },
                 component: resolve => {
                     require.ensure([], () => {
                         resolve(require('components/group/ranking/ranking'));
@@ -57,6 +68,9 @@ const router = [
             {
                 path: 'manage',
                 name: 'manage',
+                meta: {
+                    requireAuth: true
+                },
                 component: resolve => {
                     require.ensure([], () => {
                         resolve(require('components/group/manage/manage'));

@@ -14,6 +14,12 @@ const mutations = {
     },
     [type.SAVE_GROUP] (state, data) {
         state.group = data;
+    },
+    SAVE_USER (state, data) {
+        state.user = data;
+    },
+    SAVE_CONFIG (state, data) {
+        state.config = data;
     }
 };
 

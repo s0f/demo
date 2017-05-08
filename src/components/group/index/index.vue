@@ -1,6 +1,6 @@
 <template>
     <div class="weui-tab">
-        <v-header :info="isIndexPage ? userInfo : groupInfo"></v-header>
+        <v-header :user="userInfo" :group="groupInfo" :type="pageType"></v-header>
         <transition  name="fade" mode="out-in">
             <router-view></router-view>
         </transition>
@@ -10,9 +10,9 @@
 <style>
 </style>
 <script>
+    import {mapState} from 'vuex';
     import Header from 'components/group/header/header';
     import Footer from 'components/group/footer/footer';
-//    import groupUtil from 'common/js/group/index';
     import baseUtil from '../../../common/js/base';
 
     export default {
@@ -23,18 +23,23 @@
         },
         data () {
             return {
-                tabbarList: ['首页', '比赛', '排名', '成员', '管理'],
-                groupInfo: {},
-                userInfo: {},
-                isIndexPage: false
+                tabbarList: ['首页', '比赛', '排名', '成员', '管理']
             };
         },
         beforeCreate () {
             baseUtil.checkGroup();
+            this.$store.dispatch('getUser');
+            this.$store.dispatch('getConfig');
         },
         created () {
-//            this.groupInfo = baseUtil.getGroupInfo();
-        }
+        },
+        computed: mapState({
+            groupInfo: state => state.group,
+            userInfo: state => state.user,
+            pageType: function () {
+                return this.$route.meta.pageType;
+            }
+        })
     };
 
 </script>

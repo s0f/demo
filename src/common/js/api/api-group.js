@@ -35,12 +35,25 @@ class API {
         }
     }
 
+    groupMessage (params) {
+        return axios.get(`/groups/${params.id}/messages`, {
+            params: {
+                start: params.start,
+                limit: params.limit
+            }
+        });
+    }
+
     member (params) {
         const memberUrl = '/member';
         if (!params) {
             params = {};
         }
         return axios.get(params.api || memberUrl);
+    }
+
+    config () {
+        return axios.get('/config');
     }
 
 }
