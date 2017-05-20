@@ -1,3 +1,6 @@
+.bg-lg {
+    background: #09BB07;
+}
 .user-link {
     color: deepskyblue;
 }
@@ -54,7 +57,7 @@
     display: block!important;
 }
 .bg-gray{
-    background: #f1f1f1;
+    background: #f7f7f7;
 }
 .spinner {
     position: absolute;
