@@ -52,6 +52,15 @@ class API {
         return axios.get(params.api || memberUrl);
     }
 
+    match (params) {
+        return axios.get(`/groups/${params.id}/matchs`, {
+            params: {
+                start: params.start,
+                limit: params.limit
+            }
+        });
+    }
+
     config () {
         return axios.get('/config');
     }

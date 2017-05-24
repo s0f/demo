@@ -12,9 +12,9 @@
 <style lang="scss">
     .spinner-wrap{
         position: fixed;
-        top: 0;
+        top: 46px;
         left: 0;
-        bottom: 0;
+        bottom: 62px;
         right: 0;
         background: #ffffff;
         z-index: 1024;

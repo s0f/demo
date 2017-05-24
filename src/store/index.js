@@ -8,6 +8,7 @@ import mutations from './mutations';
 import getters from './getters';
 import groupIndex from './modules/groupIndex';
 import pageLoading from './modules/pageLoading';
+import pageMatch from './modules/pageMatch';
 
 Vue.use(Vuex);
 
@@ -25,6 +26,7 @@ export default new Vuex.Store({
     getters,
     modules: {
         groupIndex,
-        pageLoading
+        pageLoading,
+        pageMatch
     }
 });
