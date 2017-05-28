@@ -39,6 +39,10 @@
                             login...
                         </MugenScroll>
                     </div>
+<<<<<<< HEAD
+=======
+                    <!--<MugenScroll :handler="fetchData" :should-handle="!loading"></MugenScroll>-->
+>>>>>>> 85e6f0a36e3dbe6eee760558423d8d5cfeaa86c1
                 </div>
 
 
@@ -46,6 +50,7 @@
         </div>
     </section>
 </template>
+<<<<<<< HEAD
 <script>
     import MugenScroll from 'vue-mugen-scroll';
     import {mapState} from 'vuex';
@@ -102,6 +107,9 @@
     };
 </script>
 <style lang="scss">
+=======
+<style type="text/scss" lang="scss">
+>>>>>>> 85e6f0a36e3dbe6eee760558423d8d5cfeaa86c1
     @import "../../../common/scss/mixin.scss";
 
     .group {
@@ -194,6 +202,7 @@
         .weui-navbar__sub {
             top: 0;
         }
+<<<<<<< HEAD
 
         .msg-tab {
             position: relative;
@@ -268,6 +277,81 @@
 
     }
 
+=======
+
+        .msg-tab {
+            position: relative;
+            text-align: center;
+            border: 1px solid #f1f1f1;
+
+            span {
+                padding: 0;
+                height: 1rem;
+                line-height: 1rem;
+            }
+
+        }
+        .msg-content {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .msg-content-item {
+            display: none;
+            width: 100%;
+            font-size: .4rem;
+
+            &
+            :first-child {
+                display: block;
+            }
+
+        }
+        .msg__list {
+            margin: 0 0 .2rem 0;
+            position: relative;
+            overflow-y: auto;
+
+            ul {
+                width: 100%;
+            }
+
+            li {
+                position: relative;
+                height: 1.7rem;
+                border-bottom: 1px solid #f1f1f1;
+
+                &
+                :nth-child(odd) {
+                    background-color: #fff;
+                }
+
+                h5 {
+                    font-size: .36rem;
+                    line-height: 1.3;
+
+                    a {
+                        color: #666;
+                    }
+
+                }
+            }
+            .msg__icon {
+                width: 1rem;
+                height: 1rem;
+                margin: 0 auto;
+                line-height: 1rem;
+
+                .iconfont {
+                    font-size: .8rem;
+                }
+
+            }
+        }
+
+    }
+
+>>>>>>> 85e6f0a36e3dbe6eee760558423d8d5cfeaa86c1
     .not-message {
         background-color: #fff;
         height: 2rem;
@@ -282,3 +366,40 @@
 
     }
 </style>
+<<<<<<< HEAD
+=======
+<script>
+//    import MugenScroll from 'vue-mugen-scroll';
+    export default {
+        data () {
+            return {
+                loading: false,
+                groupMessageList: [],
+                start: 0,
+                limit: 5
+            };
+        },
+        created: function () {
+        },
+        methods: {
+            fetchData: function () {
+                const self = this;
+                this.loading = true;
+                self.$store.dispatch('getMessage', {
+                    id: self.group.id,
+                    start: (self.start++) * self.limit,
+                    limit: self.limit
+                });
+            }
+        },
+        computed: {
+            group () {
+                return this.$store.state.group;
+            }
+        },
+        components: {
+//            MugenScroll
+        }
+    };
+</script>
+>>>>>>> 85e6f0a36e3dbe6eee760558423d8d5cfeaa86c1
