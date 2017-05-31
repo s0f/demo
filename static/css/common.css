@@ -31,6 +31,42 @@
 .tip-orange {
     color: orange;
 }
+.w2{
+    width: 2%;
+}
+.w5{
+    width: 5%;
+}
+.w10{
+    width: 10%;
+}
+.w15{
+    width: 15%;
+}
+.w20{
+    width: 20%;
+}
+.w25{
+    width: 25%;
+}
+.w30{
+    width: 30%;
+}
+.w35{
+    width: 35%;
+}
+.w40{
+    width: 40%;
+}
+.txt-l{
+    text-align: left;
+}
+.txt-c{
+    text-align: center;
+}
+.txt-r{
+    text-align: right;
+}
 .tip-openCamera{
     width: 80%;
     margin: 0 auto;
@@ -111,7 +147,7 @@
 .fade-enter-active, .fade-leave-active {
     transition: opacity .5s
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+.fade-enter, .fade-leave-to{
     opacity: 0
 }
 

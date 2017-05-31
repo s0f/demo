@@ -1,5 +1,5 @@
 <template>
-    <div class="page-match">
+    <div class="page-match" ref="page-match">
         <div class="operate">
             <div class="operate-left">
                 <a href="#" class="weui-btn weui-btn_mini weui-btn_plain-primary start-battle-btn"
@@ -9,12 +9,12 @@
             </div>
         </div>
         <table class="table match-list">
-            <thead>
-                <th></th>
+            <thead class="txt-l">
+                <th class="w10"></th>
                 <th>A方</th>
-                <th>比分</th>
+                <th class="w15">比分</th>
                 <th>B方</th>
-                <th><i class="iconfont icon-shipin"></i></th>
+                <th class="w10"><i class="iconfont icon-shipin"></i></th>
             </thead>
             <tbody>
             <tr v-for="(item, index) in matchList">
@@ -22,12 +22,13 @@
                 <td>
                     <User :user="item.playerA1" type="middle"></User>
                 </td>
-                <td>
+                <td class="txt-l">
                     <span>{{item.scoreA}}</span>:<span>{{item.scoreB}}</span>
                 </td>
                 <td>
                     <User :user="item.playerB1" type="middle"></User>
                 </td>
+                <td></td>
             </tr>
             </tbody>
         </table>
@@ -38,6 +39,12 @@
     .match-list{
         background-color: #fff;
         margin-top: .2rem;
+        .user{
+            margin-left: .1rem;
+        }
+        tbody tr{
+            border-bottom: 1px solid #f1f1f1;
+        }
     }
     .operate {
         margin-top: .2rem;
@@ -69,7 +76,7 @@
         data () {
             return {
                 start: 0,
-                limit: 5,
+                limit: 10,
                 loading: false,
                 matchList: []
             };
@@ -78,16 +85,16 @@
             fetchData: function () {
                 const self = this;
                 this.loading = true;
-                setTimeout(function () {
-                    api.match({
-                        id: self.$store.state.group.id,
-                        start: (self.start++) * self.limit,
-                        limit: self.limit
-                    }).then(res => {
-                            console.log(res.data);
-                            self.matchList = [...self.matchList, ...res.data];
-                        });
-                }, 200);
+//                setTimeout(function () {
+                api.match({
+                    id: self.$store.state.group.id,
+                    start: (self.start++) * self.limit,
+                    limit: self.limit
+                }).then(res => {
+                        self.matchList = [...self.matchList, ...res.data];
+                        self.loading = false;
+                    });
+//                }, 200);
             }
         },
         components: {

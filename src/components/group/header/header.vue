@@ -2,13 +2,15 @@
     <header class="header" v-if="headerState && headerState.show">
         <a href="javascript:void(0)" class="header-left group-header" v-if="headerState.showGroup && group">
             <img :src="group.logo" alt="" class="nav-user__pic">
-            <h2>{{group.name}}</h2><i class="iconfont icon-arrow-bottom nav-refresh" v-if="headerState.showToggleGroupBtn"></i></a>
+            <h2>{{group.name}}</h2><i class="iconfont icon-arrow-bottom nav-refresh" v-if="headerState.showToggleGroupBtn" @click="toggleGroup"></i>
+        </a>
         <div class="header-right logo" v-if="headerState.showUser && user">
             <img :src="user.logo" alt="" class="nav-user__pic">
             <h2>{{user.nick}}</h2>
             <strong :class="[isShowOutLogin ? 'show' : '', 'signout']">
                 <i class="iconfont icon-tuichu weui-tabbar__icon"></i></strong>
         </div>
+        <modal title="切換小組" ref="modal">提示呐</modal>
     </header>
 </template>
 <style lang="scss" scoped>
@@ -151,8 +153,10 @@
 
     }
 
-</style>
+</style type>
 <script>
+    import modal from 'components/common/Modal';
+
     export default {
         data () {
             return {
@@ -163,9 +167,12 @@
             this.setHeaderState();
         },
         props: ['user', 'group', 'type'],
+        components: {
+            modal
+        },
         methods: {
             toggleGroup: function (event) {
-                console.log(event);
+                this.$refs.modal.open();
             },
             setHeaderState () {
                 switch (this.type) {
